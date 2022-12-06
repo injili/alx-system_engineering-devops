@@ -1,0 +1,2 @@
+#!/bin/bash
+find . -type f -printf '%t - %p\n' | tail -10 | sort -n
