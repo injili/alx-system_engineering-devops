@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# This script uses while to print 10 "Best School"
+
+x=1
+while [ $x -le 10 ]
+do
+	echo Best school
+	x=$(( x + 1 ))
+done
