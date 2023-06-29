@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# This prints "Best school" 8 times, "bad luck" for the 4th, "good luck" for the 8
+
+x=1
+while [ $x -le 10 ]
+do
+	if [ $x == 4 ]; then
+		echo bad luck
+	elif [ $x == 8 ]; then
+		echo good luck
+	else
+		echo Best school
+	fi
+	x=$(( x + 1 ))
+done
