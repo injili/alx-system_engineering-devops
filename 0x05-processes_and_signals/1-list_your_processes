@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+# a list of all current running processes
+# a:for all processes, u: user-oriented x: w/wo TTY, f: show in heirachy
+
+ps -auxf
