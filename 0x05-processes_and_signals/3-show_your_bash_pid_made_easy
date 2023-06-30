@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
-#The PID along with the process name of the processes with the name "bash"
+#The PID along with the process name of  bash processes
 
-ps -eo pid,comm | grep "bash"
+pgrep -l "bash"
