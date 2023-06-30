@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+# print I am invincible when receiving a SIGTERM signal
+
+msg()
+{
+	echo "I am invincible!!!"
+}
+trap "msg" SIGTERM
+
+while true
+do
+	echo "To infinity and beyond"
+done
