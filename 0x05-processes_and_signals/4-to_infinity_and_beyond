@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+# print "To infinity and beyond" to infinity
+# wait 2 seconds though
+
+x=1
+while [ $x -le 10 ]
+do
+	echo To infinity and beyond
+	sleep 2
+done
