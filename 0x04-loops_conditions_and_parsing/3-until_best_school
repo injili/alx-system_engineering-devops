@@ -4,6 +4,6 @@
 x=1
 until [ $x == 11 ]
 do
-	echo Best school
+	echo Best School
 	x=$(( x + 1 ))
 done
