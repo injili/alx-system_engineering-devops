@@ -9,7 +9,7 @@ do
 	elif [ $x == 8 ]; then
 		echo good luck
 	else
-		echo Best school
+		echo Best School
 	fi
 	x=$(( x + 1 ))
 done
