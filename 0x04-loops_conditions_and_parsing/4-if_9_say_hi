@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# This prints "Best school" 9 times then adds Hi for the last time
+# This prints "Best School" 9 times then adds Hi for the last time
 
 x=1
 while [ $x -le 10 ]
 do
-	echo Best school
+	echo Best School
 	if [ $x == 9 ]; then
 		echo "Hi"
 	fi
