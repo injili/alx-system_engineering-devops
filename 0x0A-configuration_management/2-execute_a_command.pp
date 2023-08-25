@@ -1,5 +1,5 @@
 # A script that kills the process killmenow
 
-exec {
+exec { 'process_killer':
   command => 'pkill -f killmenow',
 }
