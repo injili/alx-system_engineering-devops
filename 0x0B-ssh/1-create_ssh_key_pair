@@ -1,4 +1,4 @@
 #!/usr/bin/env bash
 # createing an SSH key pair
 
-ssh -t rsa -b 4096 -f school -N betty
+ssh -b 4096 -f school -N betty
