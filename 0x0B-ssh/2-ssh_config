@@ -3,4 +3,4 @@
 
 Host 54.175.133.240
 	PasswordAuthentication no
-	IdentifyFile ~/.ssh/school 
+	IdentityFile ~/.ssh/school 
