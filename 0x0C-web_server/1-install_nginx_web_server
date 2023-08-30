@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+# A bash script that installs Nginx on my web-01 server
+# sets Nginx to listen to port 80
+# customizing the GET response to "Hello World!"
+
+sudo apt-get update
+sudo apt-get -y install nginx
+echo "Hello World!" | sudo tee /usr/share/nginx/html/index.html
+sudo service nginx start
