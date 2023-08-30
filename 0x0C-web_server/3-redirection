@@ -4,11 +4,8 @@
 # customizing the GET response to "Hello World!"
 # customize the redirection
 
-REDIRECT="s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/injili permanent;/"
-
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo sh -c "echo 'Hello World!' > /var/www/html/index.nginx-debian.html"
-sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/injili permanent;/" /etc/nginx/sites-available/default
+sudo sed -i '/server_name _;/a \ \ \ \ location /redirect_me {\n \ \ \ \ \ \ \ \ rewrite ^\/redirect_me https:\/\/github.com\/injili permanent;\n \ \ \ \ }' /etc/nginx/sites-available/default
 sudo service nginx start
-mv
