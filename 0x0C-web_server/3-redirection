@@ -9,5 +9,6 @@ REDIRECT="s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/gi
 sudo apt-get -y update
 sudo apt-get -y install nginx
 sudo sh -c "echo 'Hello World!' > /var/www/html/index.nginx-debian.html"
-sudo sed -i "$REDIRECT" /etc/nginx/sites-available/default
+sudo sed -i "s/server_name _;/server_name _;\n\trewrite ^\/redirect_me https:\/\/github.com\/injili permanent;/" /etc/nginx/sites-available/default
 sudo service nginx start
+mv
