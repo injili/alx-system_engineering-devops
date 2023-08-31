@@ -13,7 +13,7 @@ file { '/var/www/html/index.html':
 }
 
 # Configure custom_404
-file { '/var/ww/html/custom_404.html':
+file { '/var/www/html/custom_404.html':
 	ensure => file,
 	content => "Ceci n'est pas une page\n",
 	require => Package['nginx'],
@@ -36,14 +36,14 @@ server {
 		return 301 https://github/injili;
 	}
 
-	error_page 404 /custom_404.html
+	error_page 404 /custom_404.html;
 	location = /custom_404.html {
 		internal;
-		return 404 "Ceci n'est pas une page\n";
+		return 404 \"Ceci n'est pas une page\\n";
 	}
 
 	location / {
-		try_files $uri $uri/ =404;
+		try_files $$uri $$uri/ =404;
 	}
 }
 ",
