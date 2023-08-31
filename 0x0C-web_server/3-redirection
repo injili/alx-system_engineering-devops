@@ -1,11 +1,30 @@
 #!/usr/bin/env bash
 # A bash script that installs Nginx on my web-01 server
-# sets Nginx to listen to port 80
-# customizing the GET response to "Hello World!"
-# customize the redirection
-
 sudo apt-get -y update
 sudo apt-get -y install nginx
-sudo sh -c "echo 'Hello World!' > /var/www/html/index.nginx-debian.html"
-sudo sed -i '/server_name _;/a \ \ \ \ location /redirect_me {\n \ \ \ \ \ \ \ \ rewrite ^\/redirect_me https:\/\/github.com\/injili permanent;\n \ \ \ \ }' /etc/nginx/sites-available/default
-sudo service nginx start
+
+# hello world configuration for the GET request
+sudo sh -c "echo 'Hello World!' > /var/www/html/index.html"
+
+# configure the redirection
+sudo sh -c "echo '
+server {
+	listen 80;
+	listen [::]:80 default_server;
+	
+	server_name _;
+	
+	location /redirect_me/ {
+		return 301 https://shorturl.at/cfw46;
+	}
+
+	root /var/www/html;
+	index index.html index.htm;
+	
+	location / {
+		try_files \$uri \$uri =404;
+	}
+}' > /etc/nginx/sites-available/default"
+
+# restart nginx
+sudo service nginx restart
