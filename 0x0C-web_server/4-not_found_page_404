@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+# A script that ends up customizing a 404 error page
+
+# Update the OS packages
+sudo apt-get -y update
+
+# Install the Nginx
+sudo apt-get -y install nginx
+
+# Customize the index file
+sudo sh -c "echo 'Hello World!' > /var/www/html/index.html"
+
+# Produce the error message configuration
+sudo tee /etc/nginx/sites-available/default << EOF
+server {
+	listen 80;
+	listen [::]:80 default_server;
+
+	server_name _;
+
+	location /redirect_me/ {
+		return 301 https://github/injili;
+	}
+
+	root /var/www/html;
+	index index.html index.htm;
+
+	error_page 404 /custom_404.html;
+	location = /custom_404.html {
+		internal;
+		return 404 "Ceci n'est pas une page\n";
+	}
+
+	location / {
+		try_files \$uri \$uri/ =404;
+	}
+}
+EOF
+
+# Create the custom_404.html file
+echo "Ceci n'est pas une page\n" | sudo tee /var/www/html/custom_404.html
+
+# Restart Nginx
+sudo service nginx restart
