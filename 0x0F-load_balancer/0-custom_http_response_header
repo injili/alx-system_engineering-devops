@@ -1,5 +1,5 @@
-#!/bin/env bash
-# script that configures the Nginx header
+#!/usr/bin/env bash
+#This script configures the Nginx header
 
 # start with updating the OS
 sudo apt-get -y update
