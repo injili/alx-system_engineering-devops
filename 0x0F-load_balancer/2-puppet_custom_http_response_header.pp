@@ -6,18 +6,21 @@ exec { 'update':
 }
 
 # install package
--> package { 'nginx':
+package { 'nginx':
 	ensure => installed,
 }
+-> Exec['update']
 
-# replace file lin
--> file_line { '/etc/nginx/nginx.conf':
+# replace file line
+file_line { '/etc/nginx/nginx.conf':
 	path  => '/etc/nginx/nginx.conf',
 	line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
 	match => 'http {',
 }
+-> Package['nginx']
 
 # restart nginx
--> exec { 'start':
-	command => 'usr/sbin/service nginx start',
+exec { 'start':
+	command => '/usr/sbin/service nginx start',
 }
+-> File_line['/etc/nginx/nginx.conf']
