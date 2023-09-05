@@ -1,0 +1,20 @@
+#!/bin/env bash
+# script that configures the Nginx header
+
+# start with updating the OS
+sudo apt-get -y update
+
+# install Nginx
+sudo apt-get -y install nginx
+
+# the string to modify the http header
+string="
+http {
+	add_header X-Served-By '$HOSTNAME';
+"
+
+# the command to implement the http header change
+sed -i "s/http {/$string/" /etc/nginx/nginx.conf
+
+# restart Nginx
+sudo service nginx restart
