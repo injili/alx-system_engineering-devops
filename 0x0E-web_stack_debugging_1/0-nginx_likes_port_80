@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+#command to debug the port effor in nginx
+
+sudo echo "
+server {
+	listen: 80;
+}
+" >> /etc/nginx/nginx.conf
