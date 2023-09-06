@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
-#command to debug the port effor in nginx
+# Correction of port 80 error
 
-sudo echo "
-server {
-	listen: 80;
-}
-" >> /etc/nginx/nginx.conf
+mv /etc/nginx/sites-available/default /etc/nginx/sites-enabled/default
+cp /etc/nginx/sites-enabled/default /etc/nginx/sites-available/default
+service nginx stop
+pkill nginx
+service nginx start
