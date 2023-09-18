@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# A script to install and configure UncomplicatedFirewall
+
+# update the OS
+sudo apt-get -y update
+
+# install the ufw
+sudo apt-get -y install ufw
+sudo sed -i "s/IPV6=no/IPV6=yes/" /etc/default/ufw
+sudo ufw default allow incoming
+sudo ufw default allow outgoing
+
+# configuration of ufw
+sudo ufw allow ssh
+sudo ufw allow http
+sudo ufw allow https
+
+# enable ufw
+sudo ufw allow
