@@ -12,7 +12,7 @@ def top_ten(subreddit):
     base_url = 'https://www.reddit.com/r/'
     sort = 'top'
     limit = 10
-    url = '{}{}/about.json?sort={}&limit={}'.format(
+    url = '{}{}/.json?sort={}&limit={}'.format(
         base_url, subreddit, sort, limit)
     headers = {
             'User-Agent':
