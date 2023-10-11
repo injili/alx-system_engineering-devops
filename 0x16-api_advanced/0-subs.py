@@ -3,7 +3,7 @@
 A function that querries the Reddit API and returns
 the number of subscribers for a given subreddit
 """
-from fake_useragent import UserAgent
+
 import request
 
 def number_of_subscribers(subreddit):
