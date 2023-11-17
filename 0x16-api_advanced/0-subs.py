@@ -5,6 +5,7 @@ The function th number_of_subscribers queries the
 Reddit API returning the number of subscribers
 """
 
+
 def number_of_subscribers(subreddit):
     """
     Args:
@@ -13,9 +14,10 @@ def number_of_subscribers(subreddit):
     """
     import requests
 
-    r = requests.get('https://www.reddit.com/r/{}/about.json'.format(subreddit),
-                   headers={'User-Agent': 'My-User-Agent'},
-                   allow_redirects=False)
+    r = requests.get('https://www.reddit.com/r/{}/about.json'
+                     .format(subreddit),
+                     headers={'User-Agent': 'My-User-Agent'},
+                     allow_redirects=False)
 
     if r.status_code == 200:
         return r.json().get('data').get('subscribers')
