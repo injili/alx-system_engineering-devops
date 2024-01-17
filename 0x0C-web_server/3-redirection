@@ -15,7 +15,7 @@ server {
 	server_name _;
 	
 	location /redirect_me/ {
-		return 301 https://www.youtube.com/watch?v=ZEGpWo7ethQ&t=925s;
+		return 301 https://github/injili;;
 	}
 
 	root /var/www/html;
