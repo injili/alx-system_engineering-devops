@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-The function th number_of_subscribers queries the
+The function 'number_of_subscribers' queries the
 Reddit API returning the number of subscribers
 """
 
@@ -12,14 +12,18 @@ def number_of_subscribers(subreddit):
         subreddit : the subreddit to find subscribers from
     Returns the number of subscribers
     """
-    import requests
+    try:
+        import requests
 
-    r = requests.get('https://www.reddit.com/r/{}/about.json'
-                     .format(subreddit),
-                     headers={'User-Agent': 'My-User-Agent'},
-                     allow_redirects=False)
+        r = requests.get('https://www.reddit.com/r/{}/about.json'
+                         .format(subreddit),
+                         headers={'User-Agent': 'My-User-Agent'},
+                         allow_redirects=False)
 
-    if r.status_code == 200:
-        return r.json().get('data').get('subscribers')
+        if r.status_code < 400:
+            return r.json().get('data').get('subscribers')
+        else:
+            return 0
 
-    return 0
+    except requests.RequestException as e:
+        return 0
