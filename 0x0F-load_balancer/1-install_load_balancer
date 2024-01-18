@@ -18,8 +18,8 @@ frontend Local_Server
 backend Web_Server
 	balance roundrobin
 	mode http
-	server web-01 100.27.3.247:80 check
-	server web-02 100.25.36.152:80 check
+	server web-01 54.90.16.200:80 check
+	server web-02 34.204.61.165:80 check
 
 EOF
 

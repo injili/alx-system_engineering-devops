@@ -14,7 +14,7 @@ package { 'nginx':
 # replace file line
 file_line { '/etc/nginx/nginx.conf':
 	path  => '/etc/nginx/nginx.conf',
-	line  => "http {\n\tadd_header X-Served-By \"${hostname}\";",
+	line  => "http {\n\tadd_header X-Served-By: \"${hostname}\";",
 	match => 'http {',
 }
 -> Package['nginx']

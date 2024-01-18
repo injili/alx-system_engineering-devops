@@ -4,7 +4,7 @@ sudo apt-get -y update
 sudo apt-get -y install nginx
 
 # hello world configuration for the GET request
-sudo sh -c "echo 'Hello World!' > /var/www/html/index.html"
+sudo sh -c 'echo "Hello World!" > /var/www/html/index.html'
 
 # configure the redirection
 sudo sh -c "echo '
@@ -15,7 +15,7 @@ server {
 	server_name _;
 	
 	location /redirect_me/ {
-		return 301 https://shorturl.at/cfw46;
+		return 301 https://github/injili;;
 	}
 
 	root /var/www/html;
